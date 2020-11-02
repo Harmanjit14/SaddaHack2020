@@ -9,13 +9,13 @@ void main() async {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget with ColorFile{
+class MyApp extends StatelessWidget with ColorFile {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Our World',
-      theme: ThemeData.light(),
+      theme: ThemeData(primaryColor: darkBrown),
       home: Screen1(),
     );
   }
