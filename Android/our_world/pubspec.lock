@@ -113,6 +113,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.3.2"
+  firebase_auth:
+    dependency: "direct main"
+    description:
+      name: firebase_auth
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.18.2"
+  firebase_auth_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_auth_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.2"
+  firebase_auth_web:
+    dependency: transitive
+    description:
+      name: firebase_auth_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.1+2"
   firebase_core:
     dependency: "direct main"
     description:
@@ -261,6 +282,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.4+1"
+  rounded_loading_button:
+    dependency: "direct main"
+    description:
+      name: rounded_loading_button
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.15"
+  rxdart:
+    dependency: transitive
+    description:
+      name: rxdart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.24.1"
   salomon_bottom_bar:
     dependency: "direct main"
     description:

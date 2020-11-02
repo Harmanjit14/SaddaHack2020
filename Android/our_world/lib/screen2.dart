@@ -1,8 +1,12 @@
+import 'dart:async';
+
 import 'package:animate_do/animate_do.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:our_world/color.dart';
 import 'package:our_world/loginScreen.dart';
+import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 int i = 0;
 String email;
@@ -31,6 +35,29 @@ class _LoginState extends State<Login> with ColorFile {
         {
           return loginScreen();
         }
+    }
+  }
+
+  final RoundedLoadingButtonController _btnController =
+      new RoundedLoadingButtonController();
+  void _doSomethingLogin() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    var temp = await firebaseAuth.signInWithEmailAndPassword(
+        email: email, password: password);
+    if (temp == null) {
+      _btnController.success();
+      Timer(Duration(seconds: 2), () {
+        Navigator.pushReplacementNamed(context, '/2');
+      });
+    } else {
+      Timer(Duration(seconds: 2), () {
+        _btnController.error();
+      });
+      print('REGISTRATION FAILED');
+      print(temp);
+      Timer(Duration(seconds: 4), () {
+        _btnController.reset();
+      });
     }
   }
 
@@ -111,7 +138,7 @@ class _LoginState extends State<Login> with ColorFile {
                   ElasticInLeft(
                     child: TextField(
                       onChanged: (value) {
-                        email = value;
+                        password = value;
                       },
                       style: TextStyle(fontSize: 18, color: darkBrown),
                       keyboardType: TextInputType.visiblePassword,
@@ -141,6 +168,28 @@ class _LoginState extends State<Login> with ColorFile {
                 ],
               ),
             ),
+            ZoomIn(
+              child: Container(
+                margin: EdgeInsets.only(top: 15),
+                // height: 60,
+                child: Container(
+                  child: RoundedLoadingButton(
+                      borderRadius: 5,
+                      width: 200,
+                      color: skin,
+                      child: Text(
+                        'LOGIN',
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900,
+                            color: Colors.white,
+                            letterSpacing: 2),
+                      ),
+                      controller: _btnController,
+                      onPressed: _doSomethingLogin),
+                ),
+              ),
+            ),
             Container(
               width: 200,
               margin: EdgeInsets.only(left: 20, right: 20, bottom: 5, top: 10),
@@ -163,7 +212,7 @@ class _LoginState extends State<Login> with ColorFile {
                 ),
                 splashColor: orange,
                 highlightedBorderColor: darkBrown,
-                onPressed: () {
+                onPressed: () async {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => Login()));
                 },
