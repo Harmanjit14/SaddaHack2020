@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:our_world/color.dart';
+import 'package:our_world/screen2.dart';
 
 class Screen1 extends StatelessWidget with ColorFile {
   @override
@@ -20,8 +21,7 @@ class Screen1Body extends StatelessWidget with ColorFile {
       child: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child:
-            Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10),
             // width: MediaQuery.of(context).size.width,
@@ -61,7 +61,7 @@ class Screen1Body extends StatelessWidget with ColorFile {
             // ),
           ),
           Expanded(
-                      child: Container(
+            child: Container(
               child: Image.asset(
                 'lib/images/pic3.png',
                 fit: BoxFit.fitHeight,
@@ -69,7 +69,7 @@ class Screen1Body extends StatelessWidget with ColorFile {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top:10,bottom: 10),
+              padding: EdgeInsets.only(top: 10, bottom: 10),
               margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
               width: MediaQuery.of(context).size.width,
               alignment: Alignment.topRight,
@@ -77,7 +77,10 @@ class Screen1Body extends StatelessWidget with ColorFile {
                   splashColor: orange,
                   color: darkBrown,
                   iconSize: 40,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => Login()));
+                  },
                   icon: Icon(FontAwesomeIcons.chevronRight))),
         ]),
       ),
