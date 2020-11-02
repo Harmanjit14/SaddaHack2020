@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget with ColorFile {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Our World',
-      theme: ThemeData(primaryColor: lock),
+      theme: ThemeData(primaryColor: darkBrown),
       home: Screen1(),
     );
   }

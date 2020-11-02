@@ -56,6 +56,7 @@ flutter:
   assets:
     - lib/images/lock2.png
     - lib/images/pic3.png
+    - lib/images/tree.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
