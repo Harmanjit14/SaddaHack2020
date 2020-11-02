@@ -1,10 +1,10 @@
 import 'dart:async';
-
 import 'package:animate_do/animate_do.dart';
-import 'firebase.dart';
+import 'package:our_world/color.dart';
+import 'package:our_world/dashboard.dart';
+import 'package:our_world/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:our_world/color.dart';
 import 'package:our_world/loginScreen.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
@@ -17,7 +17,7 @@ class Login extends StatefulWidget {
   _LoginState createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> with ColorFile, Firebase {
+class _LoginState extends State<Login> with ColorFile, FirebaseClass {
   // ignore: missing_return
   Widget manager() {
     switch (i) {
@@ -35,30 +35,6 @@ class _LoginState extends State<Login> with ColorFile, Firebase {
         {
           return loginScreen();
         }
-    }
-  }
-
-  final RoundedLoadingButtonController _btnController =
-      new RoundedLoadingButtonController();
-  void _doSomethingLogin() async {
-    print(email);
-    print(password);
-
-    var temp = await loginUser(email, password);
-    if (temp == null) {
-      _btnController.success();
-      Timer(Duration(seconds: 2), () {
-        // Navigator.pushReplacementNamed(context, '/2');
-      });
-    } else {
-      Timer(Duration(seconds: 2), () {
-        _btnController.error();
-      });
-      print('REGISTRATION FAILED');
-      print(temp);
-      Timer(Duration(seconds: 4), () {
-        _btnController.reset();
-      });
     }
   }
 
@@ -169,56 +145,57 @@ class _LoginState extends State<Login> with ColorFile, Firebase {
                 ],
               ),
             ),
-            ZoomIn(
-              child: Container(
-                margin: EdgeInsets.only(top: 15),
-                // height: 60,
-                child: Container(
-                  child: RoundedLoadingButton(
-                      borderRadius: 5,
-                      width: 200,
-                      color: skin,
-                      child: Text(
-                        'LOGIN',
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w900,
-                            color: darkBrown,
-                            letterSpacing: 2),
-                      ),
-                      controller: _btnController,
-                      onPressed: _doSomethingLogin),
-                ),
-              ),
-            ),
-            // Container(
-            //   width: 200,
-            //   margin: EdgeInsets.only(left: 20, right: 20, bottom: 5, top: 10),
-            //   child: OutlineButton(
-            //     borderSide: BorderSide(width: 2, color: darkBrown),
-            //     padding: EdgeInsets.only(top: 15, bottom: 15),
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.center,
-            //       children: [
-            //         Text(
-            //           "Lets Go",
-            //           style: TextStyle(
-            //               color: darkBrown,
-            //               fontWeight: FontWeight.bold,
-            //               fontSize: 23),
-            //         ),
-            //         SizedBox(width: 7),
-            //         Icon(FontAwesomeIcons.arrowRight),
-            //       ],
+            // ZoomIn(
+            //   child: Container(
+            //     margin: EdgeInsets.only(top: 15),
+            //     // height: 60,
+            //     child: Container(
+            //       child: RoundedLoadingButton(
+            //           borderRadius: 5,
+            //           width: 200,
+            //           color: skin,
+            //           child: Text(
+            //             'LOGIN',
+            //             style: TextStyle(
+            //                 fontSize: 20,
+            //                 fontWeight: FontWeight.w900,
+            //                 color: darkBrown,
+            //                 letterSpacing: 2),
+            //           ),
+            //           controller: _btnController,
+            //           onPressed: _doSomethingLogin),
             //     ),
-            //     splashColor: orange,
-            //     highlightedBorderColor: darkBrown,
-            //     onPressed: () async {
-            //       Navigator.pushReplacement(context,
-            //           MaterialPageRoute(builder: (context) => Login()));
-            //     },
             //   ),
             // ),
+            Container(
+              width: 200,
+              margin: EdgeInsets.only(left: 20, right: 20, bottom: 5, top: 10),
+              child: OutlineButton(
+                borderSide: BorderSide(width: 2, color: darkBrown),
+                padding: EdgeInsets.only(top: 15, bottom: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Lets Go",
+                      style: TextStyle(
+                          color: darkBrown,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 23),
+                    ),
+                    SizedBox(width: 7),
+                    Icon(FontAwesomeIcons.arrowRight),
+                  ],
+                ),
+                splashColor: orange,
+                highlightedBorderColor: darkBrown,
+                onPressed: () async {
+                  // var temp = loginUser(email, password);
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Dashboard()));
+                },
+              ),
+            ),
             Container(
                 width: MediaQuery.of(context).size.width,
                 child: Image.asset("lib/images/tree.gif")),
