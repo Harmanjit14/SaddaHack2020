@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html >
+<html>
+
 <head>
-<title>hackathon</title>
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="HandheldFriendly" content="true">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <title>hackathon</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
+
 <body>
     <!-- <div id="offerDiv">
        <div class="offers">
@@ -29,104 +32,154 @@
             </div>
             <button type="button" id="details" onclick="showDetails()">See details</button>
         </div> -->
-    <!-- </div> --> 
+    <!-- </div> -->
     <div class="header">
         <nav class="navbar navbar-expand-lg ">
-          <div class="container">
-            <a class="navbar-brand" href="#">
-              <img src="https://i.pinimg.com/originals/62/4a/15/624a1562420df83e023bdeb1323bf9d3.jpg" width="60" height="60"
-                class="d-inline-block align-top" alt="">
-            </a>
-            <span id="logo">Bootstrap</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Profile</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Transaction</a>
-                </li>
-    
-              </ul>
-            </div>
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="https://i.pinimg.com/originals/62/4a/15/624a1562420df83e023bdeb1323bf9d3.jpg" width="60" height="60" class="d-inline-block align-top" alt="">
+                </a>
+                <span id="logo">Recycler</span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <div class="navbar-toggler-icon hamburger">
+            <div class="line"> </div>
+            <div class="line"></div>
+            <div class="line"></div>
           </div>
+        </button>
+
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto ">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Transaction</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
         </nav>
         <section id="background">
-          <p id="tagline">Waste isn't waste Until we Waste it</p>
+            <p id="tagline">Waste isn't waste Until we Waste it</p>
         </section>
-      </div>
-      
-    
-    
-    <div id="types_of_waste">
-    
-     <h2>Types of waste</h2>
-      <section id="slider">
-        <input type="radio" name="slider" id="s1">
-        <input type="radio" name="slider" id="s2">
-        <input type="radio" name="slider" id="s3" checked> 
-        <input type="radio" name="slider" id="s4">
-        <input type="radio" name="slider" id="s5">
-    
-        <label for="s1" id="slide1">
-          <img src="https://www.azocleantech.com/images/Article_Images/ImageForArticle_795(1).jpg" width="100%" height="100%" alt="">
-          <div class="describe">
-            <p>Plastic</p>
-        </div>
-        </label>
-    
-        <label for="s2" id="slide2">
-          <img src="https://zerowastememoirs.com/wp-content/uploads/2017/01/ZWM-paper-waste-scaled.jpg" width="100%" height="100%" alt="">
-          <div class="describe">
-            <p>Paper</p>
-        </div>
-        </label>
-    
-        <label for="s3" id="slide3">
-          <img src="https://www.simsrecycling.com/wp-content/uploads/sites/2/2019/07/Close-up-of-used-mobile-Li-ion-phone-batteries-broken-screens-LCD-iPhone-panels-laptop-collected-for-disposal-in-plastic-containers.png" width="100%" height="100%"  alt="">
-          <div class="describe">
-            <p>e-Waste</p>
-        </div>
-        </label>
-    
-        <label for="s4" id="slide4">
-          <img src="https://cdn.thefabricator.com/a/do-you-manage-scrap-properly--0.jpg?size=1000x"width="100%" height="100%"  alt="">
-          <div class="describe">
-            <p>Metal</p>
-        </div>
-        </label>
-    
-        <label for="s5" id="slide5">
-          <img src="https://thefederal.com/file/2019/07/iStock-1022715774-696x392.jpg"width="100%" height="100%"  alt="">
-          <div class="describe">
-            <p>Medical</p>
-        </div>
-        </label>
-    
-      </section>
-    
     </div>
-      <br><br>
 
+    <div id="types_of_waste">
+
+        <h2>Types of waste</h2>
+        <section id="slider">
+            <input type="radio" name="slider" id="s1">
+            <input type="radio" name="slider" id="s2">
+            <input type="radio" name="slider" id="s3" checked>
+            <input type="radio" name="slider" id="s4">
+            <input type="radio" name="slider" id="s5">
+
+            <label for="s1" id="slide1">
+        <img src="https://www.azocleantech.com/images/Article_Images/ImageForArticle_795(1).jpg" width="100%"
+          height="100%" alt="">
+        <div class="describe">
+          <p>Plastic</p>
+        </div>
+      </label>
+
+            <label for="s2" id="slide2">
+        <img src="https://zerowastememoirs.com/wp-content/uploads/2017/01/ZWM-paper-waste-scaled.jpg" width="100%"
+          height="100%" alt="">
+        <div class="describe">
+          <p> Points for Biodegradable type of Waste:
+            <span id="wastepoints1"></span>
+          </p>
+        </div>
+      </label>
+
+            <label for="s3" id="slide3">
+        <img
+          src="https://www.simsrecycling.com/wp-content/uploads/sites/2/2019/07/Close-up-of-used-mobile-Li-ion-phone-batteries-broken-screens-LCD-iPhone-panels-laptop-collected-for-disposal-in-plastic-containers.png"
+          width="100%" height="100%" alt="">
+        <div class="describe">
+          <p class="quote">Don’t throw it away, it can be used in some other way</p>
+        </div>
+      </label>
+
+            <label for="s4" id="slide4">
+        <img src="https://cdn.thefabricator.com/a/do-you-manage-scrap-properly--0.jpg?size=1000x" width="100%"
+          height="100%" alt="">
+        <div class="describe">
+          <p > Points for Other type of Waste:
+            <span id="wastepoints2"></span>
+          </p>
+        </div>
+      </label>
+
+            <label for="s5" id="slide5">
+        <img src="https://thefederal.com/file/2019/07/iStock-1022715774-696x392.jpg" width="100%" height="100%" alt="">
+        <div class="describe">
+          <p class="quote" > Points for Non-Biodegradable type of Waste:
+            <span id="wastepoints3"></span>
+          </p>
+        </div>
+      </label>
+
+        </section>
+
+    </div>
+
+    <section id="profile">
+        <h1>Profile</h1>
+        <div class="row">
+            <div class="col-sm col" id="client">
+                <img src="../Pictures/avtar.png" width="200rem" height="200rem" alt="">
+
+                <span id="details">
+            <div>Name :
+              <span id="name">harami</span>
+            </div>
+            <div>Title :
+                <span id="title"></span>
+            </div>
+            <div>Email :
+                <span id="email"></span>
+            </div>
+            <div>Phone No. :
+                <span id="phone"></span>
+            </div>
+            <div>Points :
+                <span id="points"></span>
+            </div>
+            </span>
+        </div>
+        <div class="col-sm col" id="transaction">
+            <h2> Active Transaction</h2>
+
+
+        </div>
+        </div>
+
+    </section>
+
+    <section id="about">
+        <h1>About Us</h1>
+        <p>
+            This website serves as a platform for users to help recycle different types of wastes they encounter in their lives. It is a user firendly, easy to use website where they can list their offers while providing necessary details for making contact. They
+            can also view offers listed by other users which will contain all the relevant information about the client and the material. Users will also recieve rewards as they complete more and more transactions and earn points. It is a small initiative
+            which aims to tackle the excessive waste problem by recycling it.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; Copyrights Reserved Snappy Flickers</p>
+    </footer>
 </body>
 <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="js/main.js"></script>
+
 </html>
