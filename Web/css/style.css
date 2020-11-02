@@ -1,0 +1,91 @@
+body{
+    overflow-x: hidden;
+}
+.formCol{
+    background: #C2A48E
+}
+.links
+{
+    color: darkslategray !important;
+}
+.links:hover{
+    text-decoration: none;
+    color: black;
+}
+.hide
+{
+    display: none ;
+}
+.loginform,.signupform{
+    padding: 2%;
+    margin-top: 20%;
+    width: 100%;
+    align-items: center;
+}
+.row1{
+    align-items: baseline;
+    margin-top: 25%;
+    justify-content: center;
+}
+.mybuttons
+{
+    margin-top: 5%;
+    margin-left: 42%;
+    border-radius: 0% !important;
+    border: 1px solid #362226 !important;
+    color: #362226 !important;
+}
+.mybuttons:hover{
+    color: antiquewhite !important;
+    background: #362226 !important;
+}
+.form-group
+{
+    padding: 1%;
+}
+.imageCol
+{
+    height: 800px;
+}
+#imgsrc
+{
+    width: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*FOR responsiveness*/
+@media only screen and (max-width:600px)
+{
+   .imageCol
+   {
+       background: #C2A48E;
+       height: 100%;
+       flex: 0 0 100% !important;
+       max-width: 100% !important;
+   }
+   #imgsrc
+   {
+       width: 100%;
+   }
+   .mybuttons
+   {
+       margin-left: 40%;
+   }
+    .formCol
+    {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
