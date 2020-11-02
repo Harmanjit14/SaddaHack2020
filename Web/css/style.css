@@ -1,6 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+ }
 body{
+    background-color: rgba(142, 226, 117, 0.411);
     overflow-x: hidden;
 }
+ .navbar{
+     font-size: 1.5rem;
+     text-transform: uppercase;
+     
+ }
+ .navbar::before{
+     content: "";
+     position: absolute;
+     top: 0%;
+     bottom: 0%;
+     right: 0;
+     left: 0;
+     background-color: rgb(176 245 148 / 29%) !important;
+     z-index: -1;
+ }
+ .navbar ul li{
+     margin-left: 1rem !important;
+     font-weight: 500;
+ }
+ .navbar ul li a{
+    color: rgb(143, 226, 117);
+ }
+ .navbar ul li a:hover{
+     color:#698d47 !important;
+ }
+
+
+#background{
+    width: 100%;
+    height: 70vh;
+   background-image: linear-gradient(rgba(102, 255, 0, 0.4),rgba(102, 255, 0, 0.4)),url('https://newcastle.nsw.gov.au/getattachment/Living/Environment/Environmental-Education/Throsby-Marine-Debris-Video-Challenge/Throsby-Litter_HERO.jpg.aspx');
+   background-size: 100% 100%;
+    /* position: relative; */
+    clip-path: polygon(100% 0%, 100% 75%,50% 100%, 0% 75%, 0% 0%);
+    
+}
+
+
+
+#types_of_waste h2{
+    margin: 2rem 0rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 5rem;
+    font-weight: 800;
+}
+
+section p{
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    color: aliceblue;
+    font-weight: 700;
+    font-size: 3.5rem;
+    letter-spacing: 0.2rem;
+}
+.describe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 255, 0, 0.37);
+    opacity: 0;
+}
+.describe p{
+      position: absolute;
+      left: 40%
+}
+.describe:hover{
+    opacity: 1;
+    transition: all 1s ease-in-out;
+}
+[type=radio]{
+    display: none;
+}
+
+#slider{
+    /* margin: 3% 0%; */
+    height: 35vw;
+    position: relative;
+    perspective: 100rem;
+    transform-style: preserve-3d;
+}
+#slider label{
+    margin: auto;
+    width: 50%;
+    height: 90%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+#s1:checked ~ #slide4, #s2:checked ~ #slide5,
+#s3:checked ~ #slide1,#s4:checked ~ #slide2,
+#s5:checked ~ #slide3{
+    transform: translate3d(-30%,0,-20rem);
+} 
+#s1:checked ~ #slide5, #s2:checked ~ #slide1,
+#s3:checked ~ #slide2,#s4:checked ~ #slide3,
+#s5:checked ~ #slide4{
+    transform: translate3d(-15%,0,-10rem);
+} 
+#s1:checked ~ #slide1, #s2:checked ~ #slide2,
+#s3:checked ~ #slide3,#s4:checked ~ #slide4,
+#s5:checked ~ #slide5{
+    transform: translate3d(0%,0,0rem);
+} 
+#s1:checked ~ #slide2, #s2:checked ~ #slide3,
+#s3:checked ~ #slide4,#s4:checked ~ #slide5,
+#s5:checked ~ #slide1{
+    transform: translate3d(-15%,0,-10rem);
+} 
+#s1:checked ~ #slide3, #s2:checked ~ #slide4,
+#s3:checked ~ #slide5,#s4:checked ~ #slide1,
+#s5:checked ~ #slide2{
+    transform: translate3d(30%,0,-20rem);
+} 
+
 .formCol{
     background: #C2A48E
 }
@@ -89,3 +219,5 @@ body{
         max-width: 100% !important;
     }
 }
+
+
