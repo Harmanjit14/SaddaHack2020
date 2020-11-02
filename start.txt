@@ -1,0 +1,3 @@
+1. web-app
+2. android-app
+3. don't push directly, make seperate branch and make pull request
