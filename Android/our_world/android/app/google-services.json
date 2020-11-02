@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "984356357571",
+    "firebase_url": "https://snappy-fingers.firebaseio.com",
+    "project_id": "snappy-fingers",
+    "storage_bucket": "snappy-fingers.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984356357571:android:72c33a247d4d2e2a2c2976",
+        "android_client_info": {
+          "package_name": "com.example.our_world"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "984356357571-scj7opimgtbqvppl8kj8c2rkp6pimtvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaj6C2OJBw1bQFz03Gfs3IA_H9YRvemKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "984356357571-scj7opimgtbqvppl8kj8c2rkp6pimtvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
