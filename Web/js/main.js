@@ -138,3 +138,37 @@ async function signIn()
         alert("Cannot login without email or password")
     }
 }
+//3rd page functions
+var i=0;;
+ function showDetails()
+ {
+   console.log("gg")
+   if(i==0)
+   {
+    document.getElementById("hiddenDiv").classList.remove("hide");
+    document.getElementById("hiddenDiv").classList.add("animate__animated");
+    document.getElementById("hiddenDiv").classList.add("animate__fadeIn");
+    document.getElementById("details").innerHTML = "Hide details";
+
+   i=1;
+   }
+   else{
+     document.getElementById("details").innerHTML = "See details";
+     document.getElementById("hiddenDiv").classList.add("hide");
+     i=0;
+   }
+ }
+ //GET TRANSACTION DATA.......
+
+ db.collection("transactions").orderBy("time","asc").onSnapshot( async function(querySnapshot){
+    await querySnapshot.docChanges().forEach(function(change){
+      if(change.type=="added"){
+       document.querySelector("#offerDiv").innerHTML += "<div class='offers'><h6 class='data'>" + "Material: " + change.doc.data().describe +
+       "</h6><h6 class='data'>" + "Quantity: " + change.doc.data().quantity + "</h6><div class='userDetails hide' id='hiddenDiv'><h6 class='data'>"
+       + "Name: " + change.doc.data().name + "</h6><h6 class='data'>" + "Contact: " + change.doc.data().phone + "</h6><h6 class='data'>"
+       + "email: " + change.doc.data().email + "</h6><h6 class='data'>" + "City: " + change.doc.data().city + `</h6></div><button type='button' onclick='showDetails()' id='details'>`
+       + "See details" + "</button></div>"
+
+     }
+   })
+ })
