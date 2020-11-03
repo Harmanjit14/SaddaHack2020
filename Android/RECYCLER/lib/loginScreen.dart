@@ -1,8 +1,9 @@
+import 'package:RECYCLER/dashboard.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:our_world/color.dart';
-import 'package:our_world/screen2.dart';
+import 'package:RECYCLER/color.dart';
+import 'package:RECYCLER/screen2.dart';
 
 class Screen1 extends StatelessWidget with ColorFile {
   @override
@@ -61,7 +62,7 @@ class Screen1Body extends StatelessWidget with ColorFile {
             // ),
           ),
           Expanded(
-                      child: Container(
+            child: Container(
               child: Image.asset(
                 'lib/images/pic3.png',
                 fit: BoxFit.fitHeight,
@@ -79,7 +80,7 @@ class Screen1Body extends StatelessWidget with ColorFile {
                   iconSize: 40,
                   onPressed: () {
                     Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => Login()));
+                        MaterialPageRoute(builder: (context) => Dashboard()));
                   },
                   icon: Icon(FontAwesomeIcons.chevronRight))),
         ]),

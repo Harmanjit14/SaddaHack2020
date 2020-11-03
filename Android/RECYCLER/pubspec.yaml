@@ -1,4 +1,4 @@
-name: our_world
+name: RECYCLER
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -37,7 +37,6 @@ dependencies:
   shared_preferences: ^0.5.12+2
   # animated_text: ^1.0.2
   animated_text_kit: ^2.5.3
-  # rounded_loading_button: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -56,11 +55,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib/images/lock2.png
-    - lib/images/pic3.png
-    - lib/images/tree.gif
     - lib/images/avtar.png
-
+    - lib/images/tree.gif
+    - lib/images/pic3.png
+    - lib/images/money.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

@@ -155,15 +155,10 @@ class _HomeState extends State<Home> with ColorFile, FirebaseClass {
                 Container(
                   height: 300,
                   // margin: EdgeInsets.fromLTRB(20, 5, 20, 0),
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 4,
-                      itemBuilder: (BuildContext context, int index) {
-                        // print(pics[0]);
-                        // TODO: PICS LGAANE HAI EK BAAR
-
-                        return Row(
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      Row(
                           children: [
                             Container(
                               // child: Image.network(pics[1]),
@@ -179,13 +174,12 @@ class _HomeState extends State<Home> with ColorFile, FirebaseClass {
                             ),
                             SizedBox(width: 10),
                           ],
-                        );
-                      }),
-                ),
-              ]),
+                        ),
+                    ],
+                  ),
         ),
       ),
-    );
+    ),),);
   }
 }
 
