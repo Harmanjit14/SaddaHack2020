@@ -4,8 +4,6 @@ import 'package:our_world/color.dart';
 import 'package:our_world/firebase.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-
-
 class Dashboard extends StatefulWidget {
   @override
   _DashboardState createState() => _DashboardState();
@@ -105,17 +103,16 @@ class _DashboardState extends State<Dashboard> {
   }
 }
 
-class Home extends StatefulWidget with FirebaseClass{
-  Home(){
+class Home extends StatefulWidget with FirebaseClass {
+  Home() {
     getPoints();
+    // getWastePics();
   }
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> with ColorFile, FirebaseClass {
-  
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -134,6 +131,19 @@ class _HomeState extends State<Home> with ColorFile, FirebaseClass {
                     "Welcome Back",
                     style: TextStyle(
                       fontSize: 30,
+                      fontWeight: FontWeight.normal,
+                      letterSpacing: -1.5,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                Container(
+                  // width: MediaQuery.of(context).size.width,
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    name,
+                    style: TextStyle(
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
@@ -150,12 +160,19 @@ class _HomeState extends State<Home> with ColorFile, FirebaseClass {
                       scrollDirection: Axis.horizontal,
                       itemCount: 4,
                       itemBuilder: (BuildContext context, int index) {
+                        // print(pics[0]);
+                        // TODO: PICS LGAANE HAI EK BAAR
+
                         return Row(
                           children: [
                             Container(
+                              // child: Image.network(pics[1]),
+                              child: Center(
+                                child: Text("Bio-Waste Points : $bio"),
+                              ),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
-                                color: Colors.black,
+                                color: myTeal,
                               ),
                               height: 300,
                               width: MediaQuery.of(context).size.width * 0.85,
@@ -194,7 +211,25 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+        child: Container(
+      margin: EdgeInsets.all(20),
+      child: Column(
+        children: [
+          Container(
+            child: Text(
+              "PROFILE",
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                letterSpacing: -1.5,
+                color: Colors.black,
+              ),
+            ),
+          )
+        ],
+      ),
+    ));
   }
 }
 
