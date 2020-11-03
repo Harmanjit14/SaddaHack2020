@@ -1,11 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-int bio, nonBio, other;
-String name, phone, email, location,title;
+int bio=0, nonBio=0, other=0;
+String name="", phone="", email="", location="",title="";
 List<String> pics = [];
 
-var client, mail, completed, type, describe, user;
 
 class FirebaseClass {
   Future getPoints() async {

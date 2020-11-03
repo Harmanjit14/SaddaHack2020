@@ -1,4 +1,5 @@
 import 'package:RECYCLER/dashboard.dart';
+import 'package:RECYCLER/firebase.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,7 +16,7 @@ class Screen1 extends StatelessWidget with ColorFile {
   }
 }
 
-class Screen1Body extends StatelessWidget with ColorFile {
+class Screen1Body extends StatelessWidget with ColorFile, FirebaseClass {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -78,7 +79,9 @@ class Screen1Body extends StatelessWidget with ColorFile {
                   splashColor: orange,
                   color: darkBrown,
                   iconSize: 40,
-                  onPressed: () {
+                  onPressed: () async {
+                    await getUser();
+                    await getPoints();
                     Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) => Dashboard()));
                   },

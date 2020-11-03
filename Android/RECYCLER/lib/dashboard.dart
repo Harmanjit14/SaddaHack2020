@@ -109,8 +109,6 @@ class _DashboardState extends State<Dashboard> {
 
 class Home extends StatefulWidget with FirebaseClass {
   Home() {
-    getUser();
-    getPoints();
     // getWastePics();
   }
   @override
@@ -169,7 +167,7 @@ class _HomeState extends State<Home> with ColorFile, FirebaseClass {
                           children: [
                             Container(
                               child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(30),
+                                  borderRadius: BorderRadius.circular(5),
                                   child: Image.network(
                                     "https://images.newindianexpress.com/uploads/user/imagelibrary/2019/12/28/w1200X800/Now_.jpg",
                                     fit: BoxFit.cover,
@@ -204,7 +202,7 @@ class _HomeState extends State<Home> with ColorFile, FirebaseClass {
                                     ),
                                   ]),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
+                                borderRadius: BorderRadius.circular(5),
                                 color: Color(0xff0EA8A8).withOpacity(0.6),
                               ),
                               height: 300,
@@ -221,7 +219,7 @@ class _HomeState extends State<Home> with ColorFile, FirebaseClass {
                           children: [
                             Container(
                               child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(30),
+                                  borderRadius: BorderRadius.circular(5),
                                   child: Image.network(
                                     "https://www.scidev.net/objects_store/thumbnail/71201187C8802D88C35733675E169F6B.jpg",
                                     fit: BoxFit.cover,
@@ -256,7 +254,7 @@ class _HomeState extends State<Home> with ColorFile, FirebaseClass {
                                     ),
                                   ]),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
+                                borderRadius: BorderRadius.circular(5),
                                 color: Color(0xff0EA8A8).withOpacity(0.6),
                               ),
                               height: 300,
@@ -273,7 +271,7 @@ class _HomeState extends State<Home> with ColorFile, FirebaseClass {
                           children: [
                             Container(
                               child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(30),
+                                  borderRadius: BorderRadius.circular(5),
                                   child: Image.network(
                                     "https://previews.123rf.com/images/terra2024/terra20241402/terra2024140200075/25925687-bio-waste-for-compost-earth.jpg",
                                     fit: BoxFit.cover,
@@ -308,7 +306,7 @@ class _HomeState extends State<Home> with ColorFile, FirebaseClass {
                                     ),
                                   ]),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
+                                borderRadius: BorderRadius.circular(5),
                                 color: Color(0xff0EA8A8).withOpacity(0.6),
                               ),
                               height: 300,
@@ -325,7 +323,11 @@ class _HomeState extends State<Home> with ColorFile, FirebaseClass {
               SizedBox(
                 height: 30,
               ),
-              Text("My Active Offers",style: TextStyle(fontSize: 20),),
+              Text(
+                "My Active Offers",
+                style: TextStyle(fontSize: 20),
+              ),
+              SizedBox(height: 15),
               Container(
                 child: StreamBuilder<QuerySnapshot>(
                   stream: FirebaseFirestore.instance
@@ -393,11 +395,45 @@ Widget singleOffer(String name, String kg, String type, String des, int time) {
             ],
           ),
           Container(
+            width: 70,
               margin: EdgeInsets.only(left: 20),
               child: IconButton(
-                  icon: Icon(FontAwesomeIcons.times), onPressed: () {
-                    
-                  }))
+                  icon: Icon(FontAwesomeIcons.times), onPressed: () {}))
+        ],
+      ),
+    ),
+  );
+}
+
+Widget allOffer(String name, String kg, String type, String des, int time) {
+  return Container(
+    height: 100,
+    child: Card(
+      elevation: 0,
+      color: Colors.pink.withOpacity(0.6),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(15),
+                child: Image.asset("lib/images/money.png"),
+              ),
+              Text(name),
+              SizedBox(width: 10),
+              Text(type),
+              SizedBox(width: 10),
+              Text(kg),
+              SizedBox(width: 10),
+            ],
+          ),
+          Container(
+            width: 70,
+            alignment: Alignment.center,
+              margin: EdgeInsets.only(left: 20),
+              child: IconButton(
+                  icon: Icon(FontAwesomeIcons.times), onPressed: () {}))
         ],
       ),
     ),
@@ -412,8 +448,55 @@ class ActiveOffers extends StatefulWidget {
 class _ActiveOffersState extends State<ActiveOffers> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text("Here")),
+    return SafeArea(
+      child: Column(
+        children: [
+          Container(
+            alignment: Alignment.centerLeft,
+            margin: EdgeInsets.all(20),
+            child: Text(
+              "All Active Offers",
+              style: TextStyle(
+                  fontSize: 30, fontWeight: FontWeight.bold, letterSpacing: -1),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 20, right: 20),
+            child: StreamBuilder<QuerySnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection("transactions")
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  final text = snapshot.data.docs;
+
+                  List<Widget> allUserOff = [];
+                  for (var confession in text) {
+                    final name = confession.get('name');
+                    final quantity = confession.get('quantity');
+                    final type = confession.get('type');
+                    final describe = confession.get('describe');
+                    final time = confession.get('time');
+                    final messageWid =
+                        allOffer(name, quantity, type, describe, time);
+                    allUserOff.add(messageWid);
+                  }
+                  return Expanded(
+                    child: ListView(
+                      addRepaintBoundaries: true,
+                      shrinkWrap: true,
+                      children: allUserOff,
+                    ),
+                  );
+                } else
+                  return Container(
+                    child: Text("Loading..."),
+                  );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
