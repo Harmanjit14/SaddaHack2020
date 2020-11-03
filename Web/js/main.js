@@ -138,7 +138,16 @@ db.collection(localStorage.getItem("currentUser")).doc("userInfo").get().then(fu
 
 })
 db.collection(localStorage.getItem("currentUser")).doc("userPoints").get().then(function(doc) {
-        document.getElementById("points").innerHTML = doc.data().bioWaste + doc.data().nonBioWaste + doc.data().other;
+    document.getElementById("points").innerHTML = doc.data().bioWaste + doc.data().nonBioWaste + doc.data().other;
+})
+
+
+
+db.collection(localStorage.getItem("currentUser")).doc("activeOffers").get().then(function(doc) {
+        document.getElementById("client1").innerHTML = doc.data().client;
+        document.getElementById("material1").innerHTML = doc.data().describe;
+        document.getElementById("type1").innerHTML = doc.data().type;
+
     })
     //3rd page functions
 var i = 0;;
@@ -192,7 +201,7 @@ function submitOffer() {
             document.getElementById("id1").classList.remove("hide");
             document.getElementById("id2").classList.remove("hide");
         } else {
-            alert("Fill all feilds");
+            alert("Fill all fields");
         }
     } catch (e) {
         alert(e);
@@ -218,7 +227,7 @@ function submitOngoing() {
             document.getElementById("id1").classList.remove("hide");
             document.getElementById("id2").classList.remove("hide");
         } else {
-            alert("Fill all feilds");
+            alert("Fill all fields");
         }
     } catch (e) {
         alert(e);

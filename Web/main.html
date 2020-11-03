@@ -36,7 +36,7 @@
             <button type="button" id="details" onclick="showDetails()">See details</button>
         </div> -->
     <!-- </div> -->
-    <div class="header">
+    <div class="header" id="head">
         <nav class="navbar navbar-expand-lg ">
             <div class="container">
                 <a class="navbar-brand" href="#">
@@ -162,9 +162,23 @@
             </span>
         </div>
         <div class="col-sm col" id="transaction">
-            <h2> Active Transaction</h2>
+            <h2> Latest Transaction</h2>
 
+            <div class="col-sm col" class="latesttransaction">
+                <img src="../Pictures/money-transfer.png" id="trans_img" width="200rem" height="200rem" alt="">
 
+                <span id="details" class="latesttransaction">
+          <div>Client :
+            <span id="client1"></span>
+            </div>
+            <div>Material :
+                <span id="material1"></span>
+            </div>
+            <div>Type :
+                <span id="type1"></span>
+            </div>
+            </span>
+        </div>
         </div>
         </div>
 
@@ -173,8 +187,8 @@
     <section id="about">
         <h1>About Us</h1>
         <p>
-            This website serves as a platform for users to help recycle different types of wastes they encounter in their lives. It is a user firendly, easy to use website where they can list their offers while providing necessary details for making contact. They
-            can also view offers listed by other users which will contain all the relevant information about the client and the material. Users will also recieve rewards as they complete more and more transactions and earn points. It is a small initiative
+            This website serves as a platform for users to help recycle different types of wastes they encounter in their lives. It is a user friendly, easy to use website where they can list their offers while providing necessary details for making contact. They
+            can also view offers listed by other users which will contain all the relevant information about the client and the material. Users will also receive rewards as they complete more and more transactions and earn points. It is a small initiative
             which aims to tackle the excessive waste problem by recycling it.
         </p>
     </section>
@@ -182,7 +196,7 @@
     <footer>
         <p>&copy; Copyrights Reserved Snappy Flickers</p>
         <span>
-        <a href="#particles-js"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="#head"><i class="fas fa-chevron-circle-up"></i></a>
       </span>
     </footer>
 </body>
