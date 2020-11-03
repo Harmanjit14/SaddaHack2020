@@ -1,5 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:our_world/color.dart';
+import 'package:our_world/firebase.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+
+String name = "Harmanjit Singh",
+    email = "test@email.com",
+    phone = "9646273060",
+    tittle = "basic";
 
 class Dashboard extends StatefulWidget {
   @override
@@ -59,7 +67,6 @@ class _DashboardState extends State<Dashboard> {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            //TODO :NowPlayingMini(),
             SalomonBottomBar(
               currentIndex: _SelectedTab.values.indexOf(_selectedTab),
               onTap: _handleIndexChanged,
@@ -96,6 +103,7 @@ class _DashboardState extends State<Dashboard> {
           ],
         ),
       ),
+      body: changeState(),
     );
   }
 }
@@ -105,14 +113,65 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home> with ColorFile, FirebaseClass {
+  
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return SafeArea(
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Container(
+          margin: EdgeInsets.all(20),
+          child: ListView(
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  // width: MediaQuery.of(context).size.width,
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Welcome Back",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                Container(
+                  height: 300,
+                  // margin: EdgeInsets.fromLTRB(20, 5, 20, 0),
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 4,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Row(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                color: Colors.black,
+                              ),
+                              height: 300,
+                              width: MediaQuery.of(context).size.width * 0.85,
+                            ),
+                            SizedBox(width: 10),
+                          ],
+                        );
+                      }),
+                ),
+              ]),
+        ),
+      ),
     );
   }
 }
+
 class ActiveOffers extends StatefulWidget {
   @override
   _ActiveOffersState createState() => _ActiveOffersState();
@@ -122,7 +181,7 @@ class _ActiveOffersState extends State<ActiveOffers> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      
+      child: Center(child: Text("Here")),
     );
   }
 }
@@ -135,11 +194,10 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-    );
+    return Container();
   }
 }
+
 class Rules extends StatefulWidget {
   @override
   _RulesState createState() => _RulesState();
@@ -148,8 +206,6 @@ class Rules extends StatefulWidget {
 class _RulesState extends State<Rules> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-    );
+    return Container();
   }
 }
