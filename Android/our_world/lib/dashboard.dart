@@ -4,10 +4,7 @@ import 'package:our_world/color.dart';
 import 'package:our_world/firebase.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-String name = "Harmanjit Singh",
-    email = "test@email.com",
-    phone = "9646273060",
-    tittle = "basic";
+
 
 class Dashboard extends StatefulWidget {
   @override
@@ -108,7 +105,10 @@ class _DashboardState extends State<Dashboard> {
   }
 }
 
-class Home extends StatefulWidget {
+class Home extends StatefulWidget with FirebaseClass{
+  Home(){
+    getPoints();
+  }
   @override
   _HomeState createState() => _HomeState();
 }
