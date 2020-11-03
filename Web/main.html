@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral+SC&family=Syne+Tactile&display=swap" rel="stylesheet">
+
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -51,27 +54,32 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto ">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#particles-js">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
+                            <a class="nav-link" href="#profile">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Transaction</a>
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="transaction.html">Transaction</a>
                         </li>
 
                     </ul>
                 </div>
             </div>
         </nav>
-        <section id="background">
-            <p id="tagline">Waste isn't waste Until we Waste it</p>
-        </section>
+        <div id="particles-js">
+            <section id="background">
+                <p id="tagline">Waste isn't waste Until we Waste it</p>
+            </section>
+        </div>
     </div>
 
     <div id="types_of_waste">
 
-        <h2>Types of waste</h2>
+        <h2> My Waste Stats</h2>
         <section id="slider">
             <input type="radio" name="slider" id="s1">
             <input type="radio" name="slider" id="s2">
@@ -82,8 +90,8 @@
             <label for="s1" id="slide1">
         <img src="https://www.azocleantech.com/images/Article_Images/ImageForArticle_795(1).jpg" width="100%"
           height="100%" alt="">
-        <div class="describe">
-          <p>Plastic</p>
+        <div class="describe-quote">
+          <p class="quote">Be the part of solution not the part of Pollution</p>
         </div>
       </label>
 
@@ -99,15 +107,15 @@
 
             <label for="s3" id="slide3">
         <img
-          src="https://www.simsrecycling.com/wp-content/uploads/sites/2/2019/07/Close-up-of-used-mobile-Li-ion-phone-batteries-broken-screens-LCD-iPhone-panels-laptop-collected-for-disposal-in-plastic-containers.png"
+          src="https://back.3blmedia.com/sites/default/files/styles/ratio_3_2/public/triplepundit/wide/e-waste%20circular%20economy%20wide.jpg"
           width="100%" height="100%" alt="">
-        <div class="describe">
+        <div class="describe-quote">
           <p class="quote">Don’t throw it away, it can be used in some other way</p>
         </div>
       </label>
 
             <label for="s4" id="slide4">
-        <img src="https://cdn.thefabricator.com/a/do-you-manage-scrap-properly--0.jpg?size=1000x" width="100%"
+        <img src="https://www.hippowaste.co.uk/media/2490/bricks-and-rubble.jpg" width="100%"
           height="100%" alt="">
         <div class="describe">
           <p > Points for Other type of Waste:
@@ -117,7 +125,7 @@
       </label>
 
             <label for="s5" id="slide5">
-        <img src="https://thefederal.com/file/2019/07/iStock-1022715774-696x392.jpg" width="100%" height="100%" alt="">
+        <img src="https://media.istockphoto.com/photos/infectious-waste-must-be-disposed-picture-id543452786?k=6&m=543452786&s=170667a&w=0&h=ysOF36hhEAc2K1bm0gdVqjc7qR8qJKS5OHFhZad7w8w=" width="100%" height="100%" alt="">
         <div class="describe">
           <p class="quote" > Points for Non-Biodegradable type of Waste:
             <span id="wastepoints3"></span>
@@ -137,7 +145,7 @@
 
                 <span id="details">
             <div>Name :
-              <span id="name">harami</span>
+              <span id="name"></span>
             </div>
             <div>Title :
                 <span id="title"></span>
@@ -173,6 +181,9 @@
 
     <footer>
         <p>&copy; Copyrights Reserved Snappy Flickers</p>
+        <span>
+        <a href="#particles-js"><i class="fas fa-chevron-circle-up"></i></a>
+      </span>
     </footer>
 </body>
 <!-- Optional JavaScript -->
@@ -180,6 +191,8 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/JavaScript" src="js/particles.js"></script>
+<script type="text/JavaScript" src="js/app.js"></script>
 <script src="js/main.js"></script>
 
 </html>

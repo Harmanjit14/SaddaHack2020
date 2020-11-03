@@ -159,16 +159,81 @@ function showDetails() {
     }
 }
 //GET TRANSACTION DATA.......
-
+var colorString = ["#3acbd9", "#e1e228", "#ee665e", "#3bb273"];
 db.collection("transactions").orderBy("time", "asc").onSnapshot(async function(querySnapshot) {
     await querySnapshot.docChanges().forEach(function(change) {
         if (change.type == "added") {
-            document.querySelector("#offerDiv").innerHTML += "<div class='offers'><h6 class='data'>" + "Material: " + change.doc.data().describe +
-                "</h6><h6 class='data'>" + "Quantity: " + change.doc.data().quantity + "</h6><div class='userDetails hide' id='hiddenDiv'><h6 class='data'>" +
+            document.querySelector(".offerCol").innerHTML += `<div class='offers'><h6 class='data'>` + "Material: " + change.doc.data().describe +
+                "</h6><h6 class='data'>" + "Quantity: " + change.doc.data().quantity + "</h6><h6 class='data'>" +
                 "Name: " + change.doc.data().name + "</h6><h6 class='data'>" + "Contact: " + change.doc.data().phone + "</h6><h6 class='data'>" +
-                "email: " + change.doc.data().email + "</h6><h6 class='data'>" + "City: " + change.doc.data().city + `</h6></div><button type='button' onclick='showDetails()' id='details'>` +
-                "See details" + "</button></div>"
+                "email: " + change.doc.data().email + "</h6><h6 class='data'>" + "City: " + change.doc.data().city + `</h6></div>`
 
         }
     })
 })
+
+//-----SUBMIT OFFER FROM USER-----//
+function submitOffer() {
+    var d = new Date();
+    var n = d.getTime();
+    try {
+        if (document.getElementById("exampleName3").value != "" && document.getElementById("exampleEmail3").value != "" && document.getElementById("examplePhone3").value != "") {
+            db.collection("transactions").add({
+                "name": document.getElementById("exampleName3").value,
+                "email": document.getElementById("exampleEmail3").value,
+                "phone": document.getElementById("examplePhone3").value,
+                "city": document.getElementById("exampleCity1").value,
+                "type": document.getElementById("inputWaste").value,
+                "describe": document.getElementById("exampleDesc1").value,
+                "quantity": document.getElementById("exampleQuantity1").value,
+                "time": 0 - n
+            })
+            alert("Submitted offer successfully");
+            document.getElementById("id1").classList.remove("hide");
+            document.getElementById("id2").classList.remove("hide");
+        } else {
+            alert("Fill all feilds");
+        }
+    } catch (e) {
+        alert(e);
+    }
+
+}
+//For ONGOING TRANSACTIONS
+
+function submitOngoing() {
+    var b = new Date();
+    var m = b.getTime();
+    try {
+        if (document.getElementById("exampleName4").value != "" && document.getElementById("exampleName5").value != "") {
+            db.collection("activeOffers").add({
+                "user": document.getElementById("exampleName4").value,
+                "client": document.getElementById("exampleName5").value,
+                "describe": document.getElementById("exampleDesc2").value,
+                "type": document.getElementById("inputWaste1").value,
+                "time": 0 - m,
+                "completed": false
+            })
+            alert("Submitted for confirmation successfully");
+            document.getElementById("id1").classList.remove("hide");
+            document.getElementById("id2").classList.remove("hide");
+        } else {
+            alert("Fill all feilds");
+        }
+    } catch (e) {
+        alert(e);
+    }
+
+}
+
+function show1() {
+    document.getElementById("id1").classList.add("hide");
+    document.getElementById("id2").classList.add("hide");
+    document.getElementById("requestForm").classList.remove("hide");
+}
+
+function show2() {
+    document.getElementById("id1").classList.add("hide");
+    document.getElementById("id2").classList.add("hide");
+    document.getElementById("ongoingForm").classList.remove("hide");
+}

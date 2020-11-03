@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Transaction</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral+SC&family=Syne+Tactile&display=swap" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!-- <div id="offerDiv">
+       <div class="offers">
+            Material: <h5>Plastic</h5>
+            Quantity: <h5>Unavailable</h5>
+            <div id="hiddenDiv" class="userDetails hide">
+                Name: <h6>Username</h6>
+                emailID: <h6>test@mail.com</h6>
+                Contact: <h6>2131432433</h6>
+                City: <h6>ABC</h6>
+            </div>
+            <button type="button" id="details" onclick="showDetails()">See details</button>
+        </div> -->
+    <!-- </div> -->
+    <div class="header">
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="https://i.pinimg.com/originals/62/4a/15/624a1562420df83e023bdeb1323bf9d3.jpg" width="60" height="60" class="d-inline-block align-top" alt="">
+                </a>
+                <span id="logo">Recycler</span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <div class="navbar-toggler-icon hamburger">
+            <div class="line"> </div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </button>
+
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto ">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="main.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="main.html">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="main.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="transaction.html">Transaction</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <section id="transactionsection">
+        <h1>Offers</h1>
+        <div class="row">
+
+            <div class="col-6 offerCol">
+
+            </div>
+
+            <div class="col-6 offerCol2">
+                <div class="addOffer" id="id1">
+                    <p>Add new Offer</p>
+                    <button type="button" onclick="show1()" class="btn " id="signUp">Go!</button>
+                </div>
+                <div class="addTransaction" id="id2">
+                    <p>Add Transaction Details</p>
+                    <button type="button" onclick="show2()" class="btn " id="signUp">Go!</button>
+                </div>
+                <div class="submitOffer hide" id="requestForm">
+                    <div class="form">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Enter your name</label>
+                            <input type="text" class="form-control" id="exampleName3" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Enter your email</label>
+                            <input type="text" class="form-control" id="exampleEmail3" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Enter your contact number</label>
+                            <input type="text" class="form-control" id="examplePhone3" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Enter city name </label>
+                            <input type="text" class="form-control" id="exampleCity1" placeholder="">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputWaste">Type Of waste</label>
+                            <select id="inputWaste" class="form-control">
+                                <option value="bioWaste">Bio-degradable</option>
+                                <option value="nonBioWaste">Non-biodegradable</option>
+                                <option value="other">Other</option>
+                              </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Waste description</label>
+                            <input type="text" class="form-control" id="exampleDesc1" placeholder="">
+                            <small id="emailHelp" class="form-text text-muted">Specify the waste material which you want to recycle eg: Plastic.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Quantity</label>
+                            <input type="text" class="form-control" id="exampleQuantity1" placeholder="">
+                            <small id="emailHelp" class="form-text text-muted">Can be specified as per your wish.</small>
+                        </div>
+                    </div>
+                    <button type="button" onclick="submitOffer()" class="btn" id="offerSubmit">Submit</button>
+
+                </div>
+
+                <div class="ongoing hide" id="ongoingForm">
+                    <div class="form">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Enter your name</label>
+                            <input type="text" class="form-control" id="exampleName4" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Enter Client name</label>
+                            <input type="text" class="form-control" id="exampleName5" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Waste Description</label>
+                            <input type="text" class="form-control" id="exampleDesc2" placeholder="">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputWaste1">Type Of waste</label>
+                            <select id="inputWaste1" class="form-control">
+                        <option value="bioWaste">Bio-degradable</option>
+                        <option value="nonBioWaste">Non-biodegradable</option>
+                        <option value="other">Other</option>
+                      </select>
+                        </div>
+                        <button type="button" onclick="submitOngoing()" class="btn" id="offerSubmit">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+
+</html>
