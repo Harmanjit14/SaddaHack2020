@@ -61,32 +61,50 @@ body {
     color: #698d47 !important;
 }
 
-#background {
-    width: 100%;
+#particles-js {
     height: 70vh;
     background-image: url('https://www.regreencity.com/wp-content/uploads/2016/11/green-wordpress-theme-orionthemes-5.jpg');
-    background-size: 100% 100%;
-    /* position: relative; */
     clip-path: polygon(100% 0%, 100% 75%, 50% 100%, 0% 75%, 0% 0%);
+    cursor: pointer;
+}
+
+#background {
+    position: absolute;
+    width: 100%;
+    height: 70vh;
+    /* background-size: 100% 100%; */
+    font-family: 'Spectral SC', serif;
+    /* position: relative; */
+}
+
+#background p {
+    position: absolute;
+    /* margin-top: 10rem; */
+    top: 40%;
+    left: 16%;
+    color: aliceblue;
+    font-weight: 700;
+    font-size: 4rem;
+    letter-spacing: 0.2rem;
 }
 
 #types_of_waste h2 {
     margin: 2rem 0rem;
     text-align: center;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     font-size: 5rem;
     font-weight: 800;
     color: #362226;
 }
 
-#background p {
+.describe-quote {
     position: absolute;
-    top: 40%;
-    left: 25%;
-    color: aliceblue;
-    font-weight: 700;
-    font-size: 3.5rem;
-    letter-spacing: 0.2rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #a9c94abe;
+    opacity: 0;
 }
 
 .describe {
@@ -99,20 +117,38 @@ body {
     opacity: 0;
 }
 
-.describe .quote {
-    font-size: 2rem;
+.describe-quote p {
+    position: absolute;
+    top: 38%;
+    left: 12%;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 700;
+    color: aliceblue;
 }
 
 .describe p {
     position: absolute;
     top: 38%;
-    left: 18%;
-    font-size: 3rem;
+    left: 19%;
+    font-size: 2.5rem;
+    text-align: center;
     font-weight: 700;
     color: aliceblue;
 }
 
+.describe .quote {
+    font-size: 2.5rem;
+    text-align: center;
+    left: 16%;
+}
+
 .describe:hover {
+    opacity: 1;
+    transition: all 1s ease-in-out;
+}
+
+.describe-quote:hover {
     opacity: 1;
     transition: all 1s ease-in-out;
 }
@@ -250,6 +286,13 @@ footer {
     font-weight: 700;
 }
 
+footer .fas {
+    position: absolute;
+    color: antiquewhite;
+    right: 5rem;
+    margin-top: 5rem;
+}
+
 footer p {
     position: relative;
     top: 45%;
@@ -274,7 +317,7 @@ footer p {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 .loginform,
@@ -324,6 +367,80 @@ footer p {
     width: 65%;
 }
 
+#transactionsection {
+    background-size: 100% 100%;
+}
+
+#transactionsection h1 {
+    margin: 2% 1%;
+    font-size: 5rem;
+    font-weight: 700;
+}
+
+.offers {
+    padding: 3%;
+}
+
+.offers :nth-child(odd) {
+    background-color: #ebb994;
+}
+
+.offers :nth-child(even) {
+    background-color: #cf976f;
+}
+
+.offers h6 {
+    font-size: 1.5rem;
+    padding: 1% 3%;
+}
+
+.offerCol2 {
+    margin-top: 1%;
+    font-size: 2.2rem;
+}
+
+.addOffer {
+    display: flex;
+}
+
+.addTransaction {
+    display: flex;
+}
+
+.offerCol2 .form {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+#transactionsection .btn {
+    width: 8rem;
+    font-size: 1.5rem;
+    height: 3.3rem;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 0.2rem;
+    border: 1.5px solid rgb(32, 22, 22);
+    margin: 2rem;
+}
+
+#transactionsection button {
+    position: absolute;
+    right: 7rem;
+    margin-top: 0rem;
+    width: 6rem;
+    font-size: 1.5rem;
+    height: 3.3rem;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 0.2rem;
+    border: 1.5px solid rgb(32, 22, 22);
+}
+
+#transactionsection button:hover {
+    background-color: rgb(32, 22, 22);
+    color: rgb(231, 193, 160);
+}
+
 
 /*FOR responsiveness*/
 
@@ -351,13 +468,15 @@ footer p {
     }
     .row1 {
         margin-top: 5%;
-        margin-left: ;
         position: relative;
         left: -4rem;
     }
 }
 
 @media(max-width:1024px) {
+    html {
+        font-size: 55%;
+    }
     #background {
         height: 50vh;
     }
@@ -367,20 +486,13 @@ footer p {
 }
 
 @media(max-width:768px) {
+    html {
+        font-size: 45%;
+    }
     #background {
         height: 40vh;
     }
-    section p {
-        top: 20%;
-        left: 8%
-    }
-}
-
-@media(max-width:768px) {
-    #background {
-        height: 40vh;
-    }
-    section p {
+    #backgroung p {
         top: 20%;
         left: 8%
     }
@@ -390,9 +502,16 @@ footer p {
         margin-top: 6rem;
     }
     #profile .row #details {
-        left: 22rem;
-        top: 8rem;
+        left: 31rem;
+        top: 13rem;
         font-size: 1.5rem;
+    }
+    .describe p {
+        font-size: 2.5rem;
+        left: 15%;
+    }
+    .describe .quote {
+        left: 8%;
     }
 }
 
@@ -403,9 +522,10 @@ footer p {
     #background {
         height: 30vh;
     }
-    section p {
-        font-weight: 500;
-        left: 15%;
+    #background p {
+        top: 70%;
+        font-weight: 700;
+        left: 12%;
     }
     #profile .row {
         display: block;
@@ -416,11 +536,21 @@ footer p {
         margin-top: 4rem;
     }
     #profile .row #details {
-        left: 42rem;
-        top: 9rem;
-        font-size: 3rem;
+        left: 40rem;
+        top: 12rem;
+        font-size: 2rem;
     }
     .hamburger {
         margin-right: 4rem;
+    }
+    .describe p {
+        font-size: 2rem;
+        left: 15%;
+    }
+    .describe .quote {
+        font-size: 1.6rem;
+    }
+    .describe-quote p {
+        left: 5%;
     }
 }
