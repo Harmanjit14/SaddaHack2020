@@ -1,4 +1,4 @@
-import 'dart:async';
+// import 'dart:async';
 import 'package:animate_do/animate_do.dart';
 import 'package:our_world/color.dart';
 import 'package:our_world/dashboard.dart';
@@ -6,7 +6,7 @@ import 'package:our_world/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:our_world/loginScreen.dart';
-import 'package:rounded_loading_button/rounded_loading_button.dart';
+// import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 int i = 0;
 String email;
